@@ -80,7 +80,7 @@
 .services ul li#facebook, .preview-facebook div.option-smart-off{background: #FFF url(images/facebook.png) no-repeat 4px 5px;}
 .services ul li#twitter, .preview-twitter div.option-smart-off{background: #FFF url(images/twitter.png) no-repeat 4px 5px;}
 .services ul li#googleplusone, .preview-googleplusone div.option-smart-off{background: #FFF url(images/googleplusone-nocount.png) no-repeat 4px 5px;}
-services ul li#pinterest, .preview-pinterest div.option-smart-off{background: #FFF url(images/pinterest.png) no-repeat 4px 5px;}
+.services ul li#pinterest, .preview-pinterest div.option-smart-off{background: #FFF url(images/pinterest.png) no-repeat 4px 5px;}
 .services ul li#wordpress, .preview-wordpress{background: #FFF url(images/wordpress.png) no-repeat 4px 5px;}
 .services ul li#digg, .preview-digg div.option-smart-off{background: #FFF url(images/digg.png) no-repeat 4px 5px;}
 .services ul li#reddit, .preview-reddit div.option-smart-off{background: #FFF url(images/reddit.png) no-repeat 4px 5px;}
@@ -116,9 +116,9 @@ services ul li#pinterest, .preview-pinterest div.option-smart-off{background: #F
 }
 
 .preview-pinterest .option-smart-on {
-	background: #FFF url(images/smart-reddit.png) no-repeat top left;
+	background: #FFF url(images/smart-pinterest.png) no-repeat top left;
 	width:104px;
-	height:21px;
+	height:24px;
 	margin-top: 3px;
 }
 
@@ -349,7 +349,7 @@ services ul li#pinterest, .preview-pinterest div.option-smart-off{background: #F
 	width: 100px;
 }
 
-.sharing-hidden .preview-digg, .sharing-hidden .preview-reddit, .sharing-hidden .preview-stumbleupon, .sharing-hidden .preview-facebook, .sharing-hidden .preview-twitter, .sharing-hidden .preview-googleplusone, .preview-pinterest, .sharing-hidden .preview-linkedin {
+.sharing-hidden .preview-digg, .sharing-hidden .preview-reddit, .sharing-hidden .preview-stumbleupon, .sharing-hidden .preview-facebook, .sharing-hidden .preview-twitter, .sharing-hidden .preview-googleplusone, .sharing-hidden .preview-pinterest, .sharing-hidden .preview-linkedin {
 	width: 120px !important;
 }
 
