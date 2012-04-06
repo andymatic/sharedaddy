@@ -41,6 +41,12 @@
 	display: block;
 }
 
+.sharing li a.share-googleplusone, .sharing-hidden li a.share-googleplusone {
+	padding: 0px 0 0 28px;
+	line-height: 24px;
+	display: block;
+}
+
 .sharing li.share-regular a, .sharing-hidden li a, .sharing li.share-regular a:hover, .sharing-hidden li a:hover {
 	border: none !important;
 }
@@ -61,6 +67,10 @@
 }
 
 .sharing a.share-twitter,.sharing-hidden a.share-twitter { background: url('images/twitter.png') no-repeat center left; }
+.sharing a.share-googleplusone,.sharing-hidden a.share-googleplusone { background: url('images/googleplusone.png') no-repeat center left; }
+.sharing li.share-googleplusone span.option-smart-on div { padding: 2px 0 0 0 !important; }
+.sharing li.share-googleplusone span.option-smart-off div { padding: 2px 0 0 0 !important; top: 2px; position: relative; }
+.sharing li.share-linkedin div { padding: 2px 0 0 0 !important; }
 .sharing a.share-facebook,.sharing-hidden a.share-facebook { background: url('images/facebook.png') no-repeat center left; }
 .sharing a.share-email,.sharing-hidden a.share-email { background: url('images/email.png') no-repeat center left; }
 .sharing a.share-digg,.sharing-hidden a.share-digg { background: url('images/digg.png') no-repeat center left; }
@@ -71,6 +81,7 @@
 .sharing a.share-linkedin,.sharing-hidden a.share-linkedin { background: url('images/linkedin.png') no-repeat center left; }
 
 .sharing div.twitter_button { padding: 2px 0; }
+.sharing div.googleplusone_button { padding: 2px 0; }
 .sharing div.reddit_button { padding: 2px 0 0 0; }
 .sharing div.stumbleupon_button { padding: 3px; }
 .sharing div.digg_button { font-size: 0px; padding: 4px 0 0 0; }
@@ -83,6 +94,7 @@
 }
 
 .sharing-hidden div.twitter_button { padding: 0; }
+.sharing-hidden div.googleplusone_button { padding: 0; }
 .sharing-hidden div.reddit_button { padding: 0; }
 .sharing-hidden div.stumbleupon_button { padding: 0; }
 .sharing-hidden div.digg_button { font-size: 0px; padding: 0; }
@@ -202,6 +214,14 @@
 	height: 16px;
 	margin-top: 4px;
 	padding: 0px !important;
+}
+
+.sharing-hidden li a.no-text.share-googleplusone {
+	width: 28px;
+}
+
+.sharing li a.no-text.share-googleplusone {
+	width: 28px;
 }
 
 .sharing li a.no-icon {

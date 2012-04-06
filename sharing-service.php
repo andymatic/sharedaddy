@@ -44,9 +44,9 @@ class Sharing_Service {
 			'linkedin'    => 'Share_LinkedIn',
 			'reddit'      => 'Share_Reddit',
 			'stumbleupon' => 'Share_Stumbleupon',
-			'pinterest' => 'Share_Pinterest',
 			'twitter'     => 'Share_Twitter',
 			'press-this'	=> 'Share_PressThis',
+            'googleplusone' => 'Share_GooglePlusOne'
 		);
 		
 		// Add any custom services in
@@ -400,12 +400,14 @@ function sharing_display( $text = '' ) {
 		$show = false;
 
 	// Only show once
-	if ( isset( $shared_with_posts[$post->ID] ) )
-		$show = false;
+	if ( isset( $shared_with_posts[$post->ID] ) && $show === true ) {
+        $found = strstr($text, '<div class="snap_nopreview sharing robots-nocontent">');
+		$show = (empty($found))?true:false;
+    }
 
 	$shared_with_posts[$post->ID] = true;
 	$sharing_content = '';
-	
+
 	if ( $show ) {
 		$enabled = $sharer->get_blog_services();
 
@@ -472,7 +474,7 @@ function sharing_display( $text = '' ) {
 			}
 
 			$sharing_content .= '<div class="sharing-clear"></div></div>';
-			
+
 			// Register our JS
 			wp_register_script( 'sharing-js', plugin_dir_url( __FILE__ ).'sharing.js', array( 'jquery' ), '0.1' );
 			add_action( 'wp_footer', 'sharing_add_footer' );
