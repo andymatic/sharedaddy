@@ -46,6 +46,7 @@ class Sharing_Service {
 			'stumbleupon' => 'Share_Stumbleupon',
 			'twitter'     => 'Share_Twitter',
 			'press-this'	=> 'Share_PressThis',
+			'pinterest'	=> 'Share_Pinterest',
             'googleplusone' => 'Share_GooglePlusOne'
 		);
 		
