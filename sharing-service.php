@@ -44,6 +44,7 @@ class Sharing_Service {
 			'linkedin'    => 'Share_LinkedIn',
 			'reddit'      => 'Share_Reddit',
 			'stumbleupon' => 'Share_Stumbleupon',
+			'pinterest' => 'Share_Pinterest',
 			'twitter'     => 'Share_Twitter',
 			'press-this'	=> 'Share_PressThis',
 		);

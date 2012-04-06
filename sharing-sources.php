@@ -700,6 +700,87 @@ class Share_LinkedIn extends Sharing_Advanced_Source {
 	}
 }
 
+class Share_Pinterest extends Sharing_Advanced_Source {
+	private $smart = false;
+	
+	public function __construct( $id, array $settings ) {
+		parent::__construct( $id, $settings );
+
+		if ( isset( $settings['smart'] ) )
+			$this->smart = $settings['smart'];
+	}
+	
+	public function get_name() {
+		return __( 'Pinterest', 'sharedaddy' );
+	}
+	
+	public function display_footer() {
+		echo '<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>';
+	}
+	public function has_custom_button_style() {
+		return $this->smart;
+	}
+
+	public function get_display( $post ) {
+		if ( $this->smart == 'smart' )
+			return '<a href="http://pinterest.com/pin/create/button/?url=' . urlencode( get_permalink( $post->ID ) ) . '&description=' . urlencode( $post->post_title ) . '" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>';
+		else
+			return '<a href="http://pinterest.com/pin/create/button/?url=' . urlencode( get_permalink( $post->ID ) ) . '&description=' . urlencode( $post->post_title ) . '" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>';
+	}		
+	
+	public function display_preview() {
+?>
+	<div class="option option-smart-<?php echo $this->smart ? 'on' : 'off'; ?>">
+		<?php
+			if ( !$this->smart ) {
+				if ( $this->button_style == 'text' || $this->button_style == 'icon-text' )
+					echo $this->get_name();
+				else
+					echo '&nbsp;';
+			}
+		?>
+	</div>
+<?php
+	}
+	
+	public function process_request( $post, array $post_data ) {
+		$pinterest_url = 'http://www.pinterest.com/submit?url=' . urlencode( get_permalink( $post->ID ) ) . '&title=' . urlencode( $post->post_title );	
+		
+		// Record stats
+		parent::process_request( $post, $post_data );
+		
+		// Redirect to Pinterest
+		wp_redirect( $pinterest_url );
+		die();
+	}
+	
+	public function update_options( array $data ) {
+		$this->smart = false;
+
+		if ( isset( $data['smart'] ) )
+			$this->smart = true;
+	}
+
+	public function get_options() {
+		return array(
+			'smart' => $this->smart
+		);
+	}
+
+	public function display_options() {
+?>
+	<div class="input">
+		<label>
+			<input name="smart" type="checkbox"<?php if ( $this->smart ) echo ' checked="checked"'; ?>/>
+			
+			<?php _e( 'Use smart button', 'sharedaddy' ); ?>
+		</label>
+	</div>
+<?php 
+	}
+}
+
+
 class Share_Facebook extends Sharing_Advanced_Source {
 	private $share_type = 'default';
 	
