@@ -719,13 +719,14 @@ class Share_Facebook extends Sharing_Advanced_Source {
 	}
 	
 	public function display_header() {
-		if ( $this->share_type == 'share' ) {
+		 //if ( $this->share_type == 'share' ) {
 			// Set the open graph description, otherwise Facebook may pick up some random text from the page
 			global $post;
 			
 			if ( $post && $post->ID > 0 )
 				echo '<meta property="og:description" content="'.esc_attr( $post->post_title ).'" />';
-		}
+
+		//}
 	}
 
 	public function get_display( $post ) {

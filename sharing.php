@@ -311,6 +311,16 @@ class Sharing_Admin {
 	  						<input type="text" name="sharing_label" value="<?php echo esc_attr( $global['sharing_label'] ); ?>" />
 	  					</td>
 	  				</tr>
+                   	<tr valign="top">
+	  					<th scope="row"><label><?php _e( 'Display buttons', 'sharedaddy' ); ?></label></th>
+	  					<td>
+	  						<select name="display_buttons">
+	  							<option<?php if ( $global['display_buttons'] == 'before' ) echo ' selected="selected"';?> value="before"><?php _e( 'Before post text', 'sharedaddy' ); ?></option>
+	  							<option<?php if ( $global['display_buttons'] == 'after' ) echo ' selected="selected"';?> value="after"><?php _e( 'After post text', 'sharedaddy' ); ?></option>
+                               	<option<?php if ( $global['display_buttons'] == 'both' ) echo ' selected="selected"';?> value="both"><?php _e( 'Both before and after post text', 'sharedaddy' ); ?></option>
+	  						</select>
+	  					</td>
+	  				</tr> 
 	  				<tr valign="top">
 	  					<th scope="row"><label><?php _e( 'Open links in', 'sharedaddy' ); ?></label></th>
 	  					<td>

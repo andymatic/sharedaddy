@@ -195,6 +195,7 @@ class Sharing_Service {
 		$options['global'] = array(
 			'button_style'  => 'icon-text',
 			'sharing_label' => __( 'Share this:', 'sharedaddy' ),
+			'display_buttons' => 'after',
 			'open_links'    => 'same',
 			'show'          => 'posts',
 			'custom'        => isset( $options['global']['custom'] ) ? $options['global']['custom'] : array()
@@ -214,6 +215,8 @@ class Sharing_Service {
 
 		if ( isset( $data['show'] ) && in_array( $data['show'], array( 'posts', 'index', 'posts-index' ) ) )
 			$options['global']['show'] = $data['show'];
+		if ( isset( $data['display_buttons'] ) && in_array( $data['display_buttons'], array( 'before', 'after', 'both' ) ) )
+			$options['global']['display_buttons'] = $data['display_buttons'];
 
 		update_option( 'sharing-options', $options );
 		return $options['global'];
@@ -481,8 +484,15 @@ function sharing_display( $text = '' ) {
 			add_action( 'wp_footer', 'sharing_add_footer' );
 		}
 	}
-	
-	return $text.$sharing_content;
+	if ( $global['display_buttons'] == 'before' ) {
+			return $sharing_content.$text;
+			}
+	if ( $global['display_buttons'] == 'after' ) {
+			return $text.$sharing_content;
+			}
+	if ( $global['display_buttons'] == 'both' ) {
+			return $sharing_content.$text.$sharing_content;
+			}
 }
 
 function calculate_excerpt_length( $length = 55 ) { 
